@@ -21,4 +21,17 @@ public fun add(list: &mut TodoList, item: String){
    list.items.push_back(item);
 }
 
+public fun remove(list: &mut TodoList, id: u64): String{
+  list.items.remove(id)
 
+}
+
+public fun delete(list: TodoList){
+  let TodoList {id, items: _} = list;
+  id.delete();
+
+}
+
+public fun lenght(list: &TodoList): u64{
+  list.items.length()
+}
