@@ -1,6 +1,6 @@
-module todo_list::todo_list;
-
-use std::string::String;
+module todo_list::todo_list{
+  use std::string::String;
+  
 
 public struct  TodoList has key, store {
   id: UID,
@@ -10,7 +10,7 @@ public struct  TodoList has key, store {
 public fun new(ctx: &mut TxContext): TodoList{
    let list = TodoList {
     id: object::new(ctx),
-    items: vector[]
+    items: vector<String>[]
    };
 
    (list)
@@ -32,6 +32,8 @@ public fun delete(list: TodoList){
 
 }
 
-public fun lenght(list: &TodoList): u64{
+public fun length(list: &TodoList): u64{
   list.items.length()
+}
+
 }
